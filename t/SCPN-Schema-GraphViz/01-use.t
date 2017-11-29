@@ -7,8 +7,8 @@ use Test::NoWarnings;
 BEGIN {
 
 	# Test.
-	use_ok('SCPN::GraphViz');
+	use_ok('SCPN::Schema::GraphViz');
 }
 
 # Test.
-require_ok('SCPN::GraphViz');
+require_ok('SCPN::Schema::GraphViz');

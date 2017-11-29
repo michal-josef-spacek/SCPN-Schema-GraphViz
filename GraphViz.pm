@@ -1,4 +1,4 @@
-package SCPN::GraphViz;
+package SCPN::Schema::GraphViz;
 
 use strict;
 use warnings;

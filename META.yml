@@ -16,7 +16,7 @@ license: bsd
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
-name: SCPN-GraphViz
+name: SCPN-Schema-GraphViz
 no_index:
   directory:
     - inc
@@ -27,8 +27,8 @@ requires:
   Error::Pure: 0.15
   perl: 5.6.2
 resources:
-  bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=SCPN-GraphViz
-  homepage: https://github.com/tupinek/SCPN-GraphViz
+  bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=SCPN-Schema-GraphViz
+  homepage: https://github.com/tupinek/SCPN-Schema-GraphViz
   license: http://opensource.org/licenses/bsd-license.php
-  repository: git://github.com/tupinek/SCPN-GraphViz
+  repository: git://github.com/tupinek/SCPN-Schema-GraphViz
 version: '0.01'
