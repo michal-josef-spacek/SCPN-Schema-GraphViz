@@ -19,6 +19,7 @@ meta-spec:
 name: SCPN-Schema-GraphViz
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt

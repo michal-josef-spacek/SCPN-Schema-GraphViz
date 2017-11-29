@@ -1,3 +1,4 @@
+examples/ex1.pl
 GraphViz.pm
 inc/Module/Install.pm
 inc/Module/Install/AuthorRequires.pm
