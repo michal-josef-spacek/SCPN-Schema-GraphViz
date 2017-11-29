@@ -37,8 +37,8 @@ sub new {
 	return $self;
 }
 
-	my ($self, $scpn_schema, $image_file) = @_;
 sub to_png {
+	my ($self, $scpn_schema, $output_png_file) = @_;
 
 	my $conditions_hr = $scpn_schema->conditions;
 	foreach my $condition_id (sort keys %{$conditions_hr}) {
@@ -80,7 +80,7 @@ sub to_png {
 
 	return $self->{'graphviz'}->run(
 		'format' => 'png:gd',
-		'output_file' => $image_file,
+		'output_file' => $output_png_file,
 	);
 }
 
