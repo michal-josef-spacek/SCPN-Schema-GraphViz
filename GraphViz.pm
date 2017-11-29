@@ -5,6 +5,8 @@ use warnings;
 
 use Class::Utils qw(set_params);
 use GraphViz2;
+use Mojo::Exception;
+use Scalar::Util qw(blessed);
 
 our $VERSION = 0.01;
 
@@ -39,6 +41,10 @@ sub new {
 
 sub to_png {
 	my ($self, $scpn_schema, $output_png_file) = @_;
+
+	if (! blessed($scpn_schema) || ! $scpn_schema->isa('SCPN::Schema')) {
+		Mojo::Exception->throw('to_png: Bad SCPN::Schema object.');
+	}
 
 	my $conditions_hr = $scpn_schema->conditions;
 	foreach my $condition_id (sort keys %{$conditions_hr}) {
