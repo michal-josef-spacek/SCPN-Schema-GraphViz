@@ -24,7 +24,9 @@ no_index:
     - xt
 requires:
   Class::Utils: 0.03
-  Error::Pure: 0.15
+  GraphViz2: 0
+  Mojo::Exception: 0
+  Scalar::Util: 0
   perl: 5.6.2
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=SCPN-Schema-GraphViz

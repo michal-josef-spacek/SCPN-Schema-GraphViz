@@ -19,7 +19,9 @@ perl_version 5.006002;
 readme_from 'GraphViz.pm';
 recursive_author_tests('xt');
 requires 'Class::Utils' => 0.03;
-requires 'Error::Pure' => 0.15;
+requires 'GraphViz2' => 0;
+requires 'Mojo::Exception' => 0;
+requires 'Scalar::Util' => 0;
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 	'?Name=SCPN-Schema-GraphViz';
 resources 'homepage' => 'https://github.com/tupinek/SCPN-Schema-GraphViz';
