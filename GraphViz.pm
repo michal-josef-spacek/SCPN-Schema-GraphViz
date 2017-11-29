@@ -37,8 +37,8 @@ sub new {
 	return $self;
 }
 
-sub to_dot {
 	my ($self, $scpn_schema, $image_file) = @_;
+sub to_png {
 
 	my $conditions_hr = $scpn_schema->conditions;
 	foreach my $condition_id (sort keys %{$conditions_hr}) {
