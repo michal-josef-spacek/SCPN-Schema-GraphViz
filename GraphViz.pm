@@ -36,7 +36,6 @@ sub new {
 
 sub to_dot {
 	my ($self, $scpn_schema, $image_file) = @_;
-use Data::Printer;
 
 	my $conditions_hr = $scpn_schema->conditions;
 	foreach my $condition_id (sort keys %{$conditions_hr}) {
