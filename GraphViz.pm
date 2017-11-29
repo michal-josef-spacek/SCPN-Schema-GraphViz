@@ -20,6 +20,9 @@ sub new {
 	# Rank dir.
 	$self->{'rank_dir'} = 'LR';
 
+	# Print titles.
+	$self->{'print_titles'} = 0;
+
 	# Process parameters.
 	set_params($self, @params);
 
@@ -45,8 +48,7 @@ sub to_dot {
 			'name' => $condition_id,
 			'shape' => 'circle',
 			'label' => $items || '',
-# TODO Labels
-#			'xlabel' => $conditions_hr->{$condition_id}->title,
+			$self->{'print_titles'} ? ('xlabel' => $conditions_hr->{$condition_id}->title) : (),
 		);
 	}
 
@@ -56,8 +58,7 @@ sub to_dot {
 			'name' => $event_id,
 			'label' => '',
 			'shape' => 'square',
-# TODO Labels
-#			'xlabel' => $events_hr->{$event_id}->title,
+			$self->{'print_titles'} ? ('xlabel' => $events_hr->{$event_id}->title) : (),
 		);
 
 		my $input_edges_hr = {};
