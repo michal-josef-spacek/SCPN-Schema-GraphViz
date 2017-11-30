@@ -46,7 +46,9 @@ sub to_png {
 			'directed' => 1,
 		},
 		'label' => $self->{'graph_title'},
-		'rankdir' => $self->{'rank_dir'},
+		'graph' => {
+			'rankdir' => $self->{'rank_dir'},
+		},
 	);
 
 	my $conditions_hr = $scpn_schema->conditions;
