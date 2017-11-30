@@ -28,14 +28,6 @@ sub new {
 	# Process parameters.
 	set_params($self, @params);
 
-	$self->{'graphviz'} = GraphViz2->new(
-		'global' => {
-			'directed' => 1,
-		},
-		'label' => $self->{'graph_title'},
-		'rankdir' => $self->{'rank_dir'},
-	);
-
 	return $self;
 }
 
@@ -45,6 +37,14 @@ sub to_png {
 	if (! blessed($scpn_schema) || ! $scpn_schema->isa('SCPN::Schema')) {
 		Mojo::Exception->throw('to_png: Bad SCPN::Schema object.');
 	}
+
+	$self->{'graphviz'} = GraphViz2->new(
+		'global' => {
+			'directed' => 1,
+		},
+		'label' => $self->{'graph_title'},
+		'rankdir' => $self->{'rank_dir'},
+	);
 
 	my $conditions_hr = $scpn_schema->conditions;
 	foreach my $condition_id (sort keys %{$conditions_hr}) {
