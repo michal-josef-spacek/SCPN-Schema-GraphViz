@@ -6,7 +6,10 @@ use warnings;
 use Class::Utils qw(set_params);
 use GraphViz2;
 use Mojo::Exception;
+use Readonly;
 use Scalar::Util qw(blessed);
+
+Readonly::Scalar our $DEFAULT_COLOR => 'black';
 
 our $VERSION = 0.01;
 
@@ -48,12 +51,11 @@ sub to_png {
 
 	my $conditions_hr = $scpn_schema->conditions;
 	foreach my $condition_id (sort keys %{$conditions_hr}) {
-		# TODO Colorize bullets.
-		my $items = $conditions_hr->{$condition_id}->list_items;
+		my $label = $self->_get_condition_label($conditions_hr->{$condition_id});
 		$self->{'graphviz'}->add_node(
 			'name' => $condition_id,
 			'shape' => 'circle',
-			'label' => $items || '',
+			'label' => $label || '',
 			$self->{'print_titles'} ? ('xlabel' => $conditions_hr->{$condition_id}->title) : (),
 		);
 	}
@@ -107,6 +109,22 @@ sub _add_edge {
 		}
 	}
 	return;
+}
+
+sub _get_condition_label {
+	my ($self, $condition) = @_;
+	my @label;
+	my @colors = $condition->list_colors;
+	foreach my $color (@colors) {
+		my $items = $condition->list_items('color' => $color);
+		if ($color eq 'default') {
+			$color = $DEFAULT_COLOR;
+		}
+		push @label, '<FONT COLOR="'.$color.'">'.$items.'</FONT>'
+			if $items > 0;
+	}
+	my $label = '<'.(join '/', @label).'>' if @label;
+	return $label;
 }
 
 1;
